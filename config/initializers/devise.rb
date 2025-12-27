@@ -1,4 +1,5 @@
-# config/initializers/devise.rb
+# frozen_string_literal: true
+
 Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   require 'devise/orm/active_record'
@@ -17,15 +18,17 @@ Devise.setup do |config|
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
 
-  # JWT configuration for devise-jwt gem
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.secret_key_base
+    jwt.secret = Rails.application.secret_key_base
+    
     jwt.dispatch_requests = [
-      ['POST', %r{^/api/v1/auth/login$}]
+      ['POST', %r{^/users/sign_in$}]
     ]
+    
     jwt.revocation_requests = [
-      ['DELETE', %r{^/api/v1/auth/logout$}]
+      ['DELETE', %r{^/users/sign_out$}]
     ]
+    
     jwt.expiration_time = 1.day.to_i
   end
 end

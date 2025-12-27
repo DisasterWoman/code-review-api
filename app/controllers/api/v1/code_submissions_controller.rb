@@ -16,6 +16,7 @@ class Api::V1::CodeSubmissionsController < ApplicationController
   def create
     @code_submission = CodeSubmission.new(code_submission_params)
     
+    # Temporary: Assign to first user if exists
     @code_submission.user = User.first if User.any?
     
     if @code_submission.save
