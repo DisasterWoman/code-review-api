@@ -48,12 +48,3 @@ rspec
 # Code quality checks
 rubocop
 brakeman
-
-Tech Stack
-
-    Ruby 3.4.8 + Rails 8.1.1 (API mode)
-    PostgreSQL
-    Devise + Devise-JWT for authentication
-    RSpec for testing
-    RuboCop for code quality
-
