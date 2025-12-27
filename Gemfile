@@ -31,7 +31,7 @@ gem "rack-cors"
 # ======================= ADDED GEMS =======================
 # Authentication (for your login form)
 gem 'devise'
-gem 'devise-jwt', '~> 0.11.0'
+gem 'devise-jwt', '~> 0.12.1'
 
 # API documentation & versioning
 gem 'rswag'  # For Swagger/OpenAPI documentation
