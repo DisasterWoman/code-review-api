@@ -1,6 +1,6 @@
 class Api::V1::CodeSubmissionsController < ApplicationController
-  before_action :set_code_submission, only: [:show, :update, :destroy]
-  
+  before_action :set_code_submission, only: %i[show update destroy]
+
   # GET /api/v1/code_submissions
   def index
     @code_submissions = CodeSubmission.all
@@ -15,15 +15,15 @@ class Api::V1::CodeSubmissionsController < ApplicationController
   # POST /api/v1/code_submissions
   def create
     @code_submission = CodeSubmission.new(code_submission_params)
-    
+
     # Temporary: Assign to first user if exists
     @code_submission.user = User.first if User.any?
-    
+
     if @code_submission.save
       render json: @code_submission, status: :created
     else
-      render json: { errors: @code_submission.errors.full_messages }, 
-             status: :unprocessable_entity
+      render json: { errors: @code_submission.errors.full_messages },
+             status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::V1::CodeSubmissionsController < ApplicationController
       render json: @code_submission
     else
       render json: { errors: @code_submission.errors.full_messages },
-             status: :unprocessable_entity
+             status: :unprocessable_content
     end
   end
 
@@ -44,7 +44,7 @@ class Api::V1::CodeSubmissionsController < ApplicationController
   end
 
   private
-  
+
   def set_code_submission
     @code_submission = CodeSubmission.find(params[:id])
   rescue ActiveRecord::RecordNotFound

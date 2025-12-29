@@ -73,3 +73,15 @@ Dockerfile.local
 
 # Ignore Byebug history
 .byebug_history
+
+# Database scripts with passwords
+fix_password_auth.sh
+# Environment variables
+.env
+.env.development
+.env.*
+# Rails credentials
+config/master.key
+# Database config (except template)
+config/database.yml
+.env*
