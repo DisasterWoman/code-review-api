@@ -17,7 +17,7 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Authentication
 gem "devise"
-gem "devise-jwt", "~> 0.11.0"
+gem "devise-jwt", "~> 0.13.0"
 
 # API Documentation
 gem "rswag"
